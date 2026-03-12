@@ -30,7 +30,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="hero" style={{ backgroundColor: slides[current].bg }}>
+    <section id="hero" className="hero" style={{ backgroundColor: slides[current].bg }}>
       <div className="hero-content">
         <h1 className="hero-title">{slides[current].title}</h1>
         <p className="hero-subtitle">{slides[current].subtitle}</p>
