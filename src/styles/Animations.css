@@ -1,0 +1,217 @@
+/* ============================================
+   FINWAVE-INSPIRED ANIMATIONS
+   ============================================ */
+
+/* ── 1. Hero title word-by-word reveal ── */
+.hero-title .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(28px);
+  animation: wordReveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes wordReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 2. Hero subtitle fade-slide ── */
+.hero-subtitle {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: subtitleReveal 0.7s ease 0.5s forwards;
+}
+
+@keyframes subtitleReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 3. Hero buttons pop-in ── */
+.hero-buttons {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: subtitleReveal 0.6s ease 0.8s forwards;
+}
+
+/* ── 4. Pulsing glow on primary CTA button ── */
+.btn-primary {
+  position: relative;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 10px;
+  background: rgba(224, 123, 0, 0.35);
+  animation: btnPulse 2.2s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes btnPulse {
+  0%, 100% { transform: scale(1);   opacity: 0.7; }
+  50%       { transform: scale(1.1); opacity: 0;   }
+}
+
+/* ── 5. Stat counter number roll ── */
+.stat-number {
+  display: inline-block;
+  transition: transform 0.1s;
+}
+
+/* ── 6. Staggered card reveal (Finwave style: scale + fade + slide) ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-up.visible,
+.fade-left.visible,
+.fade-right.visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* ── 7. Service card hover lift (Finwave style) ── */
+.service-card {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(26, 60, 110, 0.14);
+}
+
+/* ── 8. About card hover lift ── */
+.about-card {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+}
+
+/* ── 9. Review bubble hover ── */
+.review-bubble {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s ease;
+}
+
+.review-bubble:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+}
+
+/* ── 10. Nav link underline slide ── */
+.navbar-links li button {
+  position: relative;
+}
+
+.navbar-links li button::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #e07b00;
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar-links li button:hover::after {
+  width: 100%;
+}
+
+/* ── 11. HWW step bounce on hover ── */
+.hww-step-number {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.2s ease;
+}
+
+.hww-step:hover .hww-step-number {
+  transform: scale(1.15) translateY(-4px);
+  background-color: #e07b00;
+}
+
+/* ── 12. Leader card hover ── */
+.leader-card {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s ease;
+}
+
+.leader-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+}
+
+/* ── 13. Section tag bounce-in ── */
+.about-tag,
+.services-tag,
+.contact-tag {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.about-tag.visible,
+.services-tag.visible,
+.contact-tag.visible {
+  animation: tagBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes tagBounce {
+  from { opacity: 0; transform: scale(0.75) translateY(10px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+/* ── 14. Contact form input focus glow ── */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #1a3c6e;
+  box-shadow: 0 0 0 3px rgba(26, 60, 110, 0.1);
+}
+
+/* ── 15. Submit button shine sweep ── */
+.contact-submit {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-submit::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+.contact-submit:hover::after {
+  left: 160%;
+}

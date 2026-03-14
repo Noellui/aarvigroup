@@ -3,69 +3,65 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: var(--cream);
-  border-bottom: 1px solid var(--border-subtle);
-  box-shadow: 0 1px 20px rgba(10,25,47,0.06);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 /* Top bar */
 .navbar-topbar {
-  background-color: var(--oxford-blue);
-  color: rgba(255,255,255,0.75);
+  background-color: #1a3c6e;
+  color: #fff;
   display: flex;
   justify-content: flex-end;
   gap: 30px;
-  padding: 7px 48px;
-  font-size: 12px;
-  font-family: 'DM Sans', sans-serif;
-  letter-spacing: 0.5px;
-}
-
-.navbar-topbar span {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  padding: 6px 40px;
+  font-size: 13px;
 }
 
 /* Main nav */
 .navbar {
-  background-color: var(--cream);
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 48px;
+  padding: 10px 40px;
   position: relative;
 }
 
-/* Logo */
-.navbar-logo {
+/* Brand: logo + divider + AMFI */
+.navbar-brand {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
-.logo-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--oxford-blue);
-  margin: 0;
-  letter-spacing: 0.5px;
+.logo-img {
+  height: 72px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
-.logo-tag {
-  font-size: 10px;
-  color: var(--gold);
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-top: 2px;
+.brand-divider {
+  width: 1px;
+  height: 40px;
+  background: #dde3f0;
+  flex-shrink: 0;
 }
 
-/* Links */
+.amfi-img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Nav links */
 .navbar-links {
   list-style: none;
   display: flex;
-  gap: 36px;
+  gap: 32px;
   margin: 0;
   padding: 0;
 }
@@ -73,52 +69,17 @@
 .navbar-links li button {
   background: none;
   border: none;
-  color: var(--text-mid);
-  font-size: 13px;
-  font-weight: 500;
+  color: #333;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
   padding: 0;
-  font-family: 'DM Sans', sans-serif;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  transition: color 0.25s;
-  position: relative;
-}
-
-.navbar-links li button::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--gold);
-  transition: width 0.3s ease;
+  font-family: inherit;
+  transition: color 0.2s;
 }
 
 .navbar-links li button:hover {
-  color: var(--oxford-blue);
-}
-
-.navbar-links li button:hover::after {
-  width: 100%;
-}
-
-/* CTA button in nav */
-.navbar-links li.nav-cta button {
-  background: var(--oxford-blue);
-  color: var(--white);
-  padding: 10px 22px;
-  letter-spacing: 1.5px;
-  transition: background 0.25s;
-}
-
-.navbar-links li.nav-cta button:hover {
-  background: var(--gold);
-}
-
-.navbar-links li.nav-cta button::after {
-  display: none;
+  color: #1a3c6e;
 }
 
 /* Hamburger */
@@ -131,16 +92,23 @@
 
 .hamburger span {
   display: block;
-  width: 24px;
-  height: 2px;
-  background-color: var(--oxford-blue);
+  width: 25px;
+  height: 3px;
+  background-color: #1a3c6e;
+  border-radius: 3px;
 }
 
 /* Mobile */
 @media (max-width: 768px) {
   .hamburger { display: flex; }
 
-  .navbar { padding: 16px 24px; }
+  .navbar { padding: 10px 20px; }
+
+  /* Hide AMFI on small screens */
+  .brand-divider,
+  .amfi-img { display: none; }
+
+  .logo-img { height: 44px; }
 
   .navbar-links {
     display: none;
@@ -149,11 +117,10 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background: var(--cream);
-    padding: 24px 40px;
-    gap: 20px;
-    border-bottom: 1px solid var(--border-subtle);
-    box-shadow: 0 8px 24px rgba(10,25,47,0.1);
+    background: #fff;
+    padding: 20px 40px;
+    gap: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
 
   .navbar-links.open { display: flex; }
@@ -163,6 +130,5 @@
     gap: 16px;
     padding: 6px 16px;
     flex-wrap: wrap;
-    font-size: 11px;
   }
 }

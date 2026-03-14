@@ -1,85 +1,129 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import '../styles/About.css';
+import useScrollAnimation from './useScrollAnimation';
+import useCounter from './useCounter';
+
+const reviews = [
+  {
+    text: "Aarvi provides great service. The team is professional, easy to work with, and they get the job done right.",
+    author: "Anil Shah",
+  },
+  {
+    text: "Aarvi provides exceptional expertise and integrity, serving as a reliable partner for my financial growth.",
+    author: "Bharat R Shah",
+  },
+  {
+    text: "Aarvi is a beacon of trustworthiness and expertise. I wholeheartedly recommend them to anyone seeking not just financial advice, but a true partner in building and safeguarding their wealth.",
+    author: "Kirti R Patel",
+  },
+  {
+    text: "If you're seeking a partner to navigate the complexities of wealth management, I wholeheartedly recommend Aarvi. Their integrity, expertise, and personalized approach make them a standout choice.",
+    author: "Mukesh Saraff",
+  },
+];
+
+const StatItem = ({ value, label, prefix = '', suffix = '' }) => {
+  const { count, ref } = useCounter(value);
+  return (
+    <div className="stat-item" ref={ref}>
+      <h3>
+        {prefix}
+        <span className="stat-number">{count}</span>
+        {suffix}
+      </h3>
+      <p>{label}</p>
+    </div>
+  );
+};
 
 const About = () => {
-  const itemsRef = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-      },
-      { threshold: 0.15 }
-    );
-    itemsRef.current.forEach((el) => { if (el) observer.observe(el); });
-    return () => observer.disconnect();
-  }, []);
+  const itemsRef = useScrollAnimation();
 
   return (
     <section id="about" className="about-section">
-      <div className="about-tag fade-up" ref={(el) => (itemsRef.current[0] = el)}>
-        About Us
-      </div>
 
+      <div className="about-tag fade-up" ref={(el) => (itemsRef.current[0] = el)}>Who We Are</div>
       <h2 className="about-heading fade-up" ref={(el) => (itemsRef.current[1] = el)}>
-        The Mandate of Clarity
+        About Aarvi Data Analytics Services
       </h2>
-
-      <div className="about-rule fade-up" ref={(el) => (itemsRef.current[2] = el)} />
-
-      <p className="about-intro fade-up" ref={(el) => (itemsRef.current[3] = el)}>
-        We at Arvi Investment Services believe in being the best wealth management
-        guide for your financial freedom. We understand wealth management needs
-        extensive research, regular monitoring, and a time-to-time review of
-        investments. We are focused on providing our clients with unparalleled
-        service in achieving their financial goals.
+      <p className="about-intro fade-up" ref={(el) => (itemsRef.current[2] = el)}>
+        Founded in 2015, Aarvi Data Analytics Services was built on the principle that wealth is
+        preserved through clarity and grown through discipline. For over a decade, we have navigated
+        the complexities of the financial landscape for more than 700 families and individuals.
+        We do not chase trends; we analyse data to build enduring legacies.
       </p>
 
-      {/* Mission & Vision */}
       <div className="about-cards">
-        <div className="about-card fade-left" ref={(el) => (itemsRef.current[4] = el)}>
+        <div className="about-card fade-left" ref={(el) => (itemsRef.current[3] = el)}>
           <div className="about-card-icon">🎯</div>
           <h3>Our Mission</h3>
           <p>
-            To serve as the definitive partner in our clients' financial journeys.
-            Built on a foundation of unwavering transparency and tailored
-            distribution strategies, we ensure every decision made today
-            strengthens your financial foundation for years to come.
+            To be the essential partner in your financial life. We build your financial future on a
+            foundation of complete transparency and strategic, customized distribution methods.
+            Every recommendation we make is focused on strengthening your financial stability for the long term.
           </p>
         </div>
-
-        <div className="about-card fade-right" ref={(el) => (itemsRef.current[5] = el)}>
+        <div className="about-card fade-right" ref={(el) => (itemsRef.current[4] = el)}>
           <div className="about-card-icon">🔭</div>
           <h3>Our Vision</h3>
           <p>
-            To create a future where every client moves forward with total
-            financial clarity, supported by a foundation so strong it turns every
-            life goal into an achievable reality while providing the enduring
-            stability to navigate a changing world.
+            We aspire to a future where every client experiences total financial clarity. Our goal is
+            to provide a foundation so robust that it transforms every life goal into an achievable
+            reality, ensuring you have the enduring stability needed to navigate an ever-changing world.
           </p>
         </div>
       </div>
 
-      {/* Stats */}
+      <h3 className="leadership-heading fade-up" ref={(el) => (itemsRef.current[5] = el)}>
+        Our Leadership
+      </h3>
+      <div className="leadership-cards">
+        <div className="leader-card fade-left" ref={(el) => (itemsRef.current[6] = el)}>
+          <div className="leader-icon">👩‍💼</div>
+          <h4>Mansi Shah</h4>
+          <span>Managing Director</span>
+        </div>
+        <div className="leader-card fade-right" ref={(el) => (itemsRef.current[7] = el)}>
+          <div className="leader-icon">👩‍💼</div>
+          <h4>Darshee Parikh</h4>
+          <span>Director</span>
+        </div>
+      </div>
+
+      {/* Stats with counter roll-up */}
       <div className="about-stats">
-        {[
-          { value: '25+', label: 'Years of Experience' },
-          { value: '1000+', label: 'Private Clients' },
-          { value: 'ARN: 4195', label: 'AMFI Registered' },
-          { value: 'Since 2000', label: 'Trusted Since' },
-        ].map((stat, i) => (
+        <StatItem value={700} suffix="+" label="Private Clients & Families" />
+        <StatItem value={10} suffix="+" label="Years of Experience" />
+        <div className="stat-item">
+          <h3>ARN: 106777</h3>
+          <p>AMFI Registered</p>
+        </div>
+        <div className="stat-item">
+          <h3>Since 2015</h3>
+          <p>Established</p>
+        </div>
+      </div>
+
+      <div className="about-tag fade-up" style={{ marginTop: '70px' }} ref={(el) => (itemsRef.current[8] = el)}>
+        What Our Clients Say
+      </div>
+      <h2 className="about-heading fade-up" ref={(el) => (itemsRef.current[9] = el)}>
+        Client Reviews
+      </h2>
+      <div className="reviews-grid">
+        {reviews.map((review, i) => (
           <div
             key={i}
-            className="stat-item fade-up"
-            ref={(el) => (itemsRef.current[6 + i] = el)}
+            className="review-bubble fade-up"
+            ref={(el) => (itemsRef.current[10 + i] = el)}
           >
-            <h3>{stat.value}</h3>
-            <p>{stat.label}</p>
+            <div className="review-quote">❝</div>
+            <p className="review-text">{review.text}</p>
+            <div className="review-author">— {review.author}</div>
           </div>
         ))}
       </div>
+
     </section>
   );
 };

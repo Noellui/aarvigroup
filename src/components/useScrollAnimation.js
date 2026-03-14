@@ -14,7 +14,7 @@ const useScrollAnimation = () => {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.05 }
     );
 
     itemsRef.current.forEach((el) => {

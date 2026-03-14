@@ -1,17 +1,18 @@
 .footer {
-  background: var(--oxford-blue);
-  color: var(--white);
-  padding: 80px 10% 40px;
+  background: #1a3c6e;
+  color: #fff;
+  padding: 60px 60px 32px;
 }
 
+/* ── Top section ── */
 .footer-top {
   display: flex;
-  gap: 60px;
+  gap: 48px;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding-bottom: 60px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  margin-bottom: 40px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 32px;
 }
 
 .footer-brand {
@@ -20,36 +21,25 @@
 }
 
 .footer-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
-  color: var(--white);
-  margin-bottom: 6px;
-}
-
-.footer-logo-tag {
-  font-size: 10px;
-  color: var(--gold);
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-  display: block;
+  color: #fff;
+  margin-bottom: 12px;
 }
 
 .footer-brand p {
-  font-size: 14px;
-  color: rgba(255,255,255,0.5);
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
   line-height: 1.8;
-  font-weight: 300;
 }
 
 .footer-col h4 {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--gold);
-  letter-spacing: 2.5px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #e07b00;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .footer-col ul {
@@ -62,47 +52,96 @@
 
 .footer-col ul li {
   font-size: 13px;
-  color: rgba(255,255,255,0.5);
-  font-weight: 300;
+  color: rgba(255,255,255,0.55);
   cursor: pointer;
   transition: color 0.2s;
 }
 
 .footer-col ul li:hover {
-  color: var(--gold);
+  color: #e07b00;
 }
 
+/* ── Disclosure box ── */
+.footer-disclosure {
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 3px solid #e07b00;
+  border-radius: 4px;
+  padding: 24px 28px;
+  margin-bottom: 28px;
+}
+
+.footer-disclosure-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #e07b00;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.footer-disclosure p {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.85;
+  margin-bottom: 0;
+}
+
+.footer-disclosure p strong {
+  color: rgba(255,255,255,0.75);
+  font-weight: 600;
+}
+
+/* ── ARN bar ── */
+.footer-arn-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 0;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+}
+
+.footer-arn-bar span {
+  padding: 0 8px;
+}
+
+.footer-arn-dot {
+  color: #e07b00;
+  padding: 0 !important;
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* ── Bottom bar ── */
 .footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 .footer-copy {
   font-size: 12px;
   color: rgba(255,255,255,0.3);
-  font-weight: 300;
-  letter-spacing: 0.3px;
 }
 
-.footer-arn {
+.footer-grievance {
   font-size: 11px;
-  color: rgba(255,255,255,0.25);
-  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.3);
 }
 
-.footer-rule {
-  width: 32px;
-  height: 1px;
-  background: var(--gold);
-  margin-bottom: 24px;
-}
-
+/* ── Mobile ── */
 @media (max-width: 768px) {
-  .footer { padding: 60px 6% 32px; }
-  .footer-top { gap: 36px; }
+  .footer { padding: 48px 24px 28px; }
+  .footer-top { gap: 32px; }
   .footer-brand { max-width: 100%; }
-  .footer-bottom { flex-direction: column; text-align: center; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 6px; }
+  .footer-arn-bar { justify-content: center; }
+  .footer-disclosure { padding: 18px 20px; }
 }

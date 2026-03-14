@@ -5,39 +5,39 @@ import useScrollAnimation from './useScrollAnimation';
 const services = [
   {
     icon: '📈',
-    title: 'Mutual Fund & SIP',
+    title: 'Market Securities',
     description:
-      'A professionally-managed investment scheme to help you grow wealth systematically through one-time or monthly SIP investments.',
+      'Sophisticated Mutual Fund distribution and SIP management tailored to build long-term, systematic wealth compounding for every client.',
+  },
+  {
+    icon: '🏦',
+    title: 'Fixed Income & Safety',
+    description:
+      'Corporate Fixed Deposits and Government/Private Bonds for capital preservation — stable, predictable returns with minimal risk.',
+  },
+  {
+    icon: '🛡️',
+    title: 'Risk Mitigation',
+    description:
+      'Comprehensive Insurance solutions including Life & Health coverage to protect your family legacy against unforeseen financial risks.',
+  },
+  {
+    icon: '📊',
+    title: 'Data-Driven Insights',
+    description:
+      'Leveraging our analytical roots to provide objective, data-led portfolio reviews that optimize risk-return balance and ensure goal alignment.',
+  },
+  {
+    icon: '🌟',
+    title: 'SIF',
+    description:
+      'Specialised Investment Fund solutions designed for high-conviction strategies and sophisticated investors seeking targeted exposure.',
   },
   {
     icon: '🌍',
     title: 'NRI Services',
     description:
-      'Specialized investment solutions for Non-Resident Indians looking to invest and manage wealth back home with ease.',
-  },
-  {
-    icon: '🛡️',
-    title: 'Insurance',
-    description:
-      'Life and health insurance solutions to protect you and your family against unforeseen financial risks.',
-  },
-  {
-    icon: '🧾',
-    title: 'Tax Planning',
-    description:
-      'Smart tax planning strategies to maximize your savings and ensure your portfolio is invested in the most tax-efficient manner.',
-  },
-  {
-    icon: '🏦',
-    title: 'Fixed Income',
-    description:
-      'Stable and predictable returns through bonds, FDs, and other fixed income instruments tailored to your risk profile.',
-  },
-  {
-    icon: '📊',
-    title: 'Portfolio Review',
-    description:
-      'Periodic monitoring and review of your investment portfolio to ensure it stays aligned with your financial goals.',
+      'Specialised investment solutions for Non-Resident Indians looking to invest and manage wealth back home with ease and compliance.',
   },
 ];
 
@@ -49,17 +49,14 @@ const Services = () => {
       <div className="services-tag fade-up" ref={(el) => (itemsRef.current[0] = el)}>
         What We Offer
       </div>
-
       <h2 className="services-heading fade-up" ref={(el) => (itemsRef.current[1] = el)}>
         Our Services
       </h2>
-
       <p className="services-intro fade-up" ref={(el) => (itemsRef.current[2] = el)}>
-        Our investment planning process integrates all aspects of your financial
-        life into a single comprehensive plan that addresses your unique wealth
-        management requirements.
+        Our investment planning process integrates all aspects of your financial life —
+        data-driven precision meets traditional wealth stewardship to address your
+        unique wealth management requirements.
       </p>
-
       <div className="services-grid">
         {services.map((service, i) => (
           <div
@@ -73,18 +70,16 @@ const Services = () => {
           </div>
         ))}
       </div>
-
       <div className="how-we-work fade-up" ref={(el) => (itemsRef.current[10] = el)}>
         <h2 className="hww-heading">How We Work With You</h2>
         <p className="hww-sub">
-          We assess your needs, limitations, resources, and financial goals —
-          then build a plan around you.
+          We assess your needs, analyse your data, and build a precision plan around you.
         </p>
         <div className="hww-steps">
           {[
             { step: '01', label: 'Schedule a Meeting' },
             { step: '02', label: 'Understand Your Needs' },
-            { step: '03', label: 'Financial Planning' },
+            { step: '03', label: 'Data Analysis & Planning' },
             { step: '04', label: 'Invest' },
             { step: '05', label: 'Periodic Review' },
           ].map((item, i) => (
