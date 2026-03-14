@@ -1,34 +1,50 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import '../styles/Contact.css';
-import useScrollAnimation from './useScrollAnimation';
 
 const Contact = () => {
-  const itemsRef = useScrollAnimation();
+  const itemsRef = useRef([]);
   const [state, handleSubmit] = useForm("xeerkovr");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.15 }
+    );
+    itemsRef.current.forEach((el) => { if (el) observer.observe(el); });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="contact" className="contact-section">
       <div className="contact-tag fade-up" ref={(el) => (itemsRef.current[0] = el)}>
-        Get In Touch
+        Inquire
       </div>
 
       <h2 className="contact-heading fade-up" ref={(el) => (itemsRef.current[1] = el)}>
-        Contact Us
+        Begin a Conversation
       </h2>
 
-      <p className="contact-intro fade-up" ref={(el) => (itemsRef.current[2] = el)}>
-        Have a question or want to schedule a meeting? We'd love to hear from you.
+      <div className="contact-rule fade-up" ref={(el) => (itemsRef.current[2] = el)} />
+
+      <p className="contact-intro fade-up" ref={(el) => (itemsRef.current[3] = el)}>
+        Request a private consultation. We'd love to understand your goals and show you how we can help.
       </p>
 
       <div className="contact-wrapper">
-        <div className="contact-info fade-left" ref={(el) => (itemsRef.current[3] = el)}>
+
+        {/* Info Side */}
+        <div className="contact-info fade-left" ref={(el) => (itemsRef.current[4] = el)}>
           <div className="contact-info-item">
             <div className="contact-info-icon">📍</div>
             <div>
               <h4>Address</h4>
               <p>53/333 E, Arden Ivy Court, Off Subhash Chandra Bose Road,
-                Opposite Reliance Fresh, Vyttila P.O., Cochin, Kerala - 682019</p>
+                Opposite Reliance Fresh, Vyttila P.O., Cochin, Kerala – 682019</p>
             </div>
           </div>
           <div className="contact-info-item">
@@ -54,12 +70,13 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="contact-form-wrapper fade-right" ref={(el) => (itemsRef.current[4] = el)}>
+        {/* Form Side */}
+        <div className="contact-form-wrapper fade-right" ref={(el) => (itemsRef.current[5] = el)}>
           {state.succeeded ? (
             <div className="form-success-box">
               <div className="form-success-icon">✅</div>
-              <h3>Message Sent!</h3>
-              <p>Thank you for reaching out. We'll get back to you shortly.</p>
+              <h3>Message Received</h3>
+              <p>Thank you for reaching out. We'll be in touch with you shortly.</p>
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit}>
@@ -75,13 +92,15 @@ const Contact = () => {
                   <ValidationError prefix="Phone" field="phone" errors={state.errors} />
                 </div>
               </div>
+
               <div className="form-group">
                 <label htmlFor="email">Email Address</label>
                 <input id="email" type="email" name="email" placeholder="your@email.com" required />
                 <ValidationError prefix="Email" field="email" errors={state.errors} />
               </div>
+
               <div className="form-group">
-                <label htmlFor="subject">Subject</label>
+                <label htmlFor="subject">Area of Interest</label>
                 <select id="subject" name="subject" required>
                   <option value="">Select a subject</option>
                   <option value="Mutual Fund & SIP">Mutual Fund & SIP</option>
@@ -93,11 +112,13 @@ const Contact = () => {
                 </select>
                 <ValidationError prefix="Subject" field="subject" errors={state.errors} />
               </div>
+
               <div className="form-group">
                 <label htmlFor="message">Message</label>
                 <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required />
                 <ValidationError prefix="Message" field="message" errors={state.errors} />
               </div>
+
               <button type="submit" className="contact-submit" disabled={state.submitting}>
                 {state.submitting ? 'Sending...' : 'Send Message'}
               </button>
