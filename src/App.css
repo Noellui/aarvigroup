@@ -4,7 +4,20 @@
   box-sizing: border-box;
 }
 
+:root {
+  --navy: #1a3c6e;
+  --navy-dark: #14305a;
+  --orange: #e07b00;
+  --orange-amber: #f59e0b;
+  --bg-light: #f9fbff;
+  --bg-white: #ffffff;
+  --text-dark: #111827;
+  --text-mid: #4b5563;
+  --text-light: #9ca3af;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
+  color: var(--text-dark);
+  background: var(--bg-white);
 }

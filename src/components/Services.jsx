@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import '../styles/Services.css';
+import useScrollAnimation from './useScrollAnimation';
 
 const services = [
   {
@@ -41,47 +42,19 @@ const services = [
 ];
 
 const Services = () => {
-  const itemsRef = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    itemsRef.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const itemsRef = useScrollAnimation();
 
   return (
     <section id="services" className="services-section">
-      <div
-        className="services-tag fade-up"
-        ref={(el) => (itemsRef.current[0] = el)}
-      >
+      <div className="services-tag fade-up" ref={(el) => (itemsRef.current[0] = el)}>
         What We Offer
       </div>
 
-      <h2
-        className="services-heading fade-up"
-        ref={(el) => (itemsRef.current[1] = el)}
-      >
+      <h2 className="services-heading fade-up" ref={(el) => (itemsRef.current[1] = el)}>
         Our Services
       </h2>
 
-      <p
-        className="services-intro fade-up"
-        ref={(el) => (itemsRef.current[2] = el)}
-      >
+      <p className="services-intro fade-up" ref={(el) => (itemsRef.current[2] = el)}>
         Our investment planning process integrates all aspects of your financial
         life into a single comprehensive plan that addresses your unique wealth
         management requirements.
@@ -101,11 +74,7 @@ const Services = () => {
         ))}
       </div>
 
-      {/* How We Work */}
-      <div
-        className="how-we-work fade-up"
-        ref={(el) => (itemsRef.current[10] = el)}
-      >
+      <div className="how-we-work fade-up" ref={(el) => (itemsRef.current[10] = el)}>
         <h2 className="hww-heading">How We Work With You</h2>
         <p className="hww-sub">
           We assess your needs, limitations, resources, and financial goals —

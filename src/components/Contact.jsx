@@ -1,60 +1,28 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import '../styles/Contact.css';
+import useScrollAnimation from './useScrollAnimation';
 
 const Contact = () => {
-  const itemsRef = useRef([]);
+  const itemsRef = useScrollAnimation();
   const [state, handleSubmit] = useForm("xeerkovr");
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    itemsRef.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section id="contact" className="contact-section">
-      <div
-        className="contact-tag fade-up"
-        ref={(el) => (itemsRef.current[0] = el)}
-      >
+      <div className="contact-tag fade-up" ref={(el) => (itemsRef.current[0] = el)}>
         Get In Touch
       </div>
 
-      <h2
-        className="contact-heading fade-up"
-        ref={(el) => (itemsRef.current[1] = el)}
-      >
+      <h2 className="contact-heading fade-up" ref={(el) => (itemsRef.current[1] = el)}>
         Contact Us
       </h2>
 
-      <p
-        className="contact-intro fade-up"
-        ref={(el) => (itemsRef.current[2] = el)}
-      >
+      <p className="contact-intro fade-up" ref={(el) => (itemsRef.current[2] = el)}>
         Have a question or want to schedule a meeting? We'd love to hear from you.
       </p>
 
       <div className="contact-wrapper">
-
-        {/* Info Side */}
-        <div
-          className="contact-info fade-left"
-          ref={(el) => (itemsRef.current[3] = el)}
-        >
+        <div className="contact-info fade-left" ref={(el) => (itemsRef.current[3] = el)}>
           <div className="contact-info-item">
             <div className="contact-info-icon">📍</div>
             <div>
@@ -63,7 +31,6 @@ const Contact = () => {
                 Opposite Reliance Fresh, Vyttila P.O., Cochin, Kerala - 682019</p>
             </div>
           </div>
-
           <div className="contact-info-item">
             <div className="contact-info-icon">📞</div>
             <div>
@@ -71,7 +38,6 @@ const Contact = () => {
               <p>+91 9349594488</p>
             </div>
           </div>
-
           <div className="contact-info-item">
             <div className="contact-info-icon">📧</div>
             <div>
@@ -79,7 +45,6 @@ const Contact = () => {
               <p>mail@arvigroup.in</p>
             </div>
           </div>
-
           <div className="contact-info-item">
             <div className="contact-info-icon">🕐</div>
             <div>
@@ -89,11 +54,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Form Side */}
-        <div
-          className="contact-form-wrapper fade-right"
-          ref={(el) => (itemsRef.current[4] = el)}
-        >
+        <div className="contact-form-wrapper fade-right" ref={(el) => (itemsRef.current[4] = el)}>
           {state.succeeded ? (
             <div className="form-success-box">
               <div className="form-success-icon">✅</div>
@@ -102,45 +63,23 @@ const Contact = () => {
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit}>
-
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="name">Full Name</label>
-                  <input
-                    id="name"
-                    type="text"
-                    name="name"
-                    placeholder="Your name"
-                    required
-                  />
+                  <input id="name" type="text" name="name" placeholder="Your name" required />
                   <ValidationError prefix="Name" field="name" errors={state.errors} />
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="phone">Phone Number</label>
-                  <input
-                    id="phone"
-                    type="tel"
-                    name="phone"
-                    placeholder="+91 XXXXXXXXXX"
-                    required
-                  />
+                  <input id="phone" type="tel" name="phone" placeholder="+91 XXXXXXXXXX" required />
                   <ValidationError prefix="Phone" field="phone" errors={state.errors} />
                 </div>
               </div>
-
               <div className="form-group">
                 <label htmlFor="email">Email Address</label>
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  placeholder="your@email.com"
-                  required
-                />
+                <input id="email" type="email" name="email" placeholder="your@email.com" required />
                 <ValidationError prefix="Email" field="email" errors={state.errors} />
               </div>
-
               <div className="form-group">
                 <label htmlFor="subject">Subject</label>
                 <select id="subject" name="subject" required>
@@ -154,27 +93,14 @@ const Contact = () => {
                 </select>
                 <ValidationError prefix="Subject" field="subject" errors={state.errors} />
               </div>
-
               <div className="form-group">
                 <label htmlFor="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  placeholder="Write your message here..."
-                  required
-                />
+                <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required />
                 <ValidationError prefix="Message" field="message" errors={state.errors} />
               </div>
-
-              <button
-                type="submit"
-                className="contact-submit"
-                disabled={state.submitting}
-              >
+              <button type="submit" className="contact-submit" disabled={state.submitting}>
                 {state.submitting ? 'Sending...' : 'Send Message'}
               </button>
-
             </form>
           )}
         </div>

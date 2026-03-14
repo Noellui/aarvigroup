@@ -1,49 +1,21 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import '../styles/About.css';
+import useScrollAnimation from './useScrollAnimation';
 
 const About = () => {
-  const sectionRef = useRef(null);
-  const itemsRef = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    itemsRef.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const itemsRef = useScrollAnimation();
 
   return (
-    <section id="about" className="about-section" ref={sectionRef}>
-      <div
-        className="about-tag fade-up"
-        ref={(el) => (itemsRef.current[0] = el)}
-      >
+    <section id="about" className="about-section">
+      <div className="about-tag fade-up" ref={(el) => (itemsRef.current[0] = el)}>
         Who We Are
       </div>
 
-      <h2
-        className="about-heading fade-up"
-        ref={(el) => (itemsRef.current[1] = el)}
-      >
+      <h2 className="about-heading fade-up" ref={(el) => (itemsRef.current[1] = el)}>
         About Arvi Investment Services
       </h2>
 
-      <p
-        className="about-intro fade-up"
-        ref={(el) => (itemsRef.current[2] = el)}
-      >
+      <p className="about-intro fade-up" ref={(el) => (itemsRef.current[2] = el)}>
         We at Arvi Investment Services believe in being the best wealth management
         guide for your financial freedom. We understand wealth management needs
         extensive research, regular monitoring, and a time-to-time review of
@@ -51,12 +23,8 @@ const About = () => {
         service in achieving their financial goals.
       </p>
 
-      {/* Mission & Vision */}
       <div className="about-cards">
-        <div
-          className="about-card fade-left"
-          ref={(el) => (itemsRef.current[3] = el)}
-        >
+        <div className="about-card fade-left" ref={(el) => (itemsRef.current[3] = el)}>
           <div className="about-card-icon">🎯</div>
           <h3>Our Mission</h3>
           <p>
@@ -67,10 +35,7 @@ const About = () => {
           </p>
         </div>
 
-        <div
-          className="about-card fade-right"
-          ref={(el) => (itemsRef.current[4] = el)}
-        >
+        <div className="about-card fade-right" ref={(el) => (itemsRef.current[4] = el)}>
           <div className="about-card-icon">🔭</div>
           <h3>Our Vision</h3>
           <p>
@@ -82,33 +47,20 @@ const About = () => {
         </div>
       </div>
 
-      {/* Stats */}
       <div className="about-stats">
-        <div
-          className="stat-item fade-up"
-          ref={(el) => (itemsRef.current[5] = el)}
-        >
+        <div className="stat-item fade-up" ref={(el) => (itemsRef.current[5] = el)}>
           <h3>25+</h3>
           <p>Years of Experience</p>
         </div>
-        <div
-          className="stat-item fade-up"
-          ref={(el) => (itemsRef.current[6] = el)}
-        >
+        <div className="stat-item fade-up" ref={(el) => (itemsRef.current[6] = el)}>
           <h3>1000+</h3>
           <p>Happy Clients</p>
         </div>
-        <div
-          className="stat-item fade-up"
-          ref={(el) => (itemsRef.current[7] = el)}
-        >
+        <div className="stat-item fade-up" ref={(el) => (itemsRef.current[7] = el)}>
           <h3>ARN: 4195</h3>
           <p>AMFI Registered</p>
         </div>
-        <div
-          className="stat-item fade-up"
-          ref={(el) => (itemsRef.current[8] = el)}
-        >
+        <div className="stat-item fade-up" ref={(el) => (itemsRef.current[8] = el)}>
           <h3>Since 2000</h3>
           <p>Trusted Since</p>
         </div>

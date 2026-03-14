@@ -3,18 +3,27 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: box-shadow 0.3s ease, backdrop-filter 0.3s ease, background 0.3s ease;
+}
+
+/* Scroll effect — frosted glass with deeper shadow */
+.navbar-header.scrolled .navbar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
 }
 
 /* Top bar */
 .navbar-topbar {
-  background-color: #1a3c6e;
+  background: linear-gradient(90deg, #1a3c6e, #2a5298);
   color: #fff;
   display: flex;
   justify-content: flex-end;
   gap: 30px;
   padding: 6px 40px;
   font-size: 13px;
+  font-weight: 500;
 }
 
 /* Main nav */
@@ -23,48 +32,77 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 40px;
+  padding: 8px 40px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 /* Logo */
 .navbar-logo {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
 }
 
-.logo-name {
-  font-size: 22px;
-  font-weight: 700;
-  color: #1a3c6e;
-  margin: 0;
+.logo-img {
+  width: 200px;
+  height: auto;
 }
 
-.logo-tag {
-  font-size: 11px;
-  color: #e07b00;
-  font-weight: 500;
-  letter-spacing: 0.3px;
+.logo-divider {
+  width: 1.5px;
+  height: 50px;
+  background-color: #ddd;
+  margin: 0 16px;
+}
+
+.amfi-img {
+  width: 160px;
+  height: auto;
 }
 
 /* Links */
 .navbar-links {
   list-style: none;
   display: flex;
-  gap: 32px;
+  gap: 36px;
   margin: 0;
   padding: 0;
 }
 
-.navbar-links li a {
-  text-decoration: none;
-  color: #333;
+.navbar-links li button {
+  background: none;
+  border: none;
+  color: #111;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 0;
+  font-family: inherit;
+  letter-spacing: 0.3px;
+  position: relative;
   transition: color 0.2s;
 }
 
-.navbar-links li a:hover {
-  color: #1a3c6e;
+.navbar-links li button::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #e07b00;
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+
+.navbar-links li button:hover {
+  color: #e07b00;
+}
+
+.navbar-links li button:hover::after {
+  width: 100%;
 }
 
 /* Hamburger */
@@ -79,7 +117,7 @@
   display: block;
   width: 25px;
   height: 3px;
-  background-color: #1a3c6e;
+  background-color: #111;
   border-radius: 3px;
 }
 
@@ -96,10 +134,11 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background: #fff;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
     padding: 20px 40px;
     gap: 16px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
   }
 
   .navbar-links.open {
@@ -112,19 +151,17 @@
     padding: 6px 16px;
     flex-wrap: wrap;
   }
-}
-.navbar-links li button {
-  background: none;
-  border: none;
-  color: #333;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0;
-  font-family: inherit;
-  transition: color 0.2s;
-}
 
-.navbar-links li button:hover {
-  color: #1a3c6e;
+  .logo-img {
+    width: 140px;
+  }
+
+  .amfi-img {
+    width: 110px;
+  }
+
+  .logo-divider {
+    height: 36px;
+    margin: 0 10px;
+  }
 }
