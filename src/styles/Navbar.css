@@ -87,6 +87,13 @@
   color: #1a3c6e;
 }
 
+/* Actions inline */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 /* Hamburger */
 .hamburger {
   display: none;
@@ -132,9 +139,6 @@
   .navbar-links.open { display: flex; }
 
   .navbar-topbar {
-    justify-content: center;
-    gap: 16px;
-    padding: 6px 16px;
-    flex-wrap: wrap;
+    display: none; /* Hide on mobile to save vertical space */
   }
 }

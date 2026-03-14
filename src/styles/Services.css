@@ -173,9 +173,23 @@
 }
 
 @media (max-width: 600px) {
-  .services-section { padding: 60px 20px; }
+  .services-section { padding: 40px 20px; }
   .services-grid { grid-template-columns: 1fr; }
+  .service-card { padding: 24px 20px; }
   .how-we-work { padding: 40px 20px; }
+  .hww-steps {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+  .hww-step {
+    flex-direction: row;
+    text-align: left;
+    gap: 16px;
+  }
+  .hww-step p {
+    text-align: left;
+  }
 }
 
 /* ── Service Modal Styles ── */

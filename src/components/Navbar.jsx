@@ -31,10 +31,6 @@ const Navbar = () => {
           />
         </div>
 
-        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-          <span></span><span></span><span></span>
-        </div>
-
         <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
           <li><button onClick={() => scrollTo('hero')}>Home</button></li>
           <li><button onClick={() => scrollTo('about')}>About Us</button></li>
@@ -42,7 +38,12 @@ const Navbar = () => {
           <li><button onClick={() => scrollTo('contact')}>Contact Us</button></li>
         </ul>
 
-        <ThemeToggle />
+        <div className="navbar-actions">
+          <ThemeToggle />
+          <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+            <span></span><span></span><span></span>
+          </div>
+        </div>
       </nav>
     </header>
   );

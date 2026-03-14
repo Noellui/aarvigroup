@@ -100,7 +100,7 @@
 }
 
 .form-group label {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: #333;
 }
@@ -186,8 +186,20 @@
 .form-success-box p { font-size: 15px; color: #555; }
 
 @media (max-width: 768px) {
-  .contact-section { padding: 60px 20px; }
-  .contact-wrapper { flex-direction: column; }
-  .form-row { flex-direction: column; }
-  .contact-form-wrapper { padding: 24px; }
+  .contact-section { padding: 40px 0; }
+  .contact-heading, .contact-tag, .contact-intro { padding: 0 20px; text-align: center; }
+  .contact-intro { padding: 0 20px; margin-bottom: 30px; }
+  .contact-wrapper { flex-direction: column; gap: 0; align-items: stretch; width: 100%; max-width: 100%; }
+  .contact-info { padding: 0 20px; margin-bottom: 32px; }
+  .form-row { flex-direction: column; gap: 20px; }
+  .contact-form-wrapper { 
+    padding: 32px 24px; 
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+    border-left: none;
+    border-right: none;
+    box-sizing: border-box;
+  }
+  .contact-submit { width: 100%; }
 }
