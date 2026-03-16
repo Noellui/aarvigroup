@@ -8,79 +8,93 @@ const Footer = () => {
 
   return (
     <footer className="footer">
+
+      {/* ── Top three-column section ── */}
       <div className="footer-top">
 
-        {/* Brand replaced with disclosure */}
-        <div className="footer-brand">
-          <p className="footer-disclosure-inline-title">Commission Disclosure</p>
-          <p className="footer-disclosure-inline-text">
-            Investments in Mutual Funds are subject to Market Risks. Please read all scheme-related
-            documents carefully before investing. Aarvi Data Analytics Services Pvt Ltd advises all
-            existing and prospective investors to evaluate Exit loads and Total Expense Ratio (TER)
-            structures prior to finalizing any investment decision. Mutual Fund Schemes do not assure
-            or guarantee any returns, and past performance is not necessarily indicative of future
-            results. There is no certainty that the investment objectives of any recommended scheme
-            will be achieved. We exclusively offer <strong>Regular Plans</strong> for Mutual Fund
-            Schemes and receive a trailing commission on client investments; a comprehensive disclosure
-            is provided at the time of transaction or upon request.
+        {/* Col 1 – About */}
+        <div className="footer-about">
+          <h4 className="footer-col-title">About Us</h4>
+          <p className="footer-about-text">
+            Aarvi Data Analytics Services Pvt Ltd was established in 2015 with the vision to create
+            a milestone in financial distribution. We serve 700+ families and individuals through
+            data-driven precision and traditional wealth stewardship.
           </p>
         </div>
 
+        {/* Col 2 – Nav */}
         <div className="footer-col">
-          <h4>Navigate</h4>
+          <h4 className="footer-col-title">Footer Menu</h4>
           <ul>
-            <li onClick={() => scrollTo('hero')}>Home</li>
-            <li onClick={() => scrollTo('about')}>About Us</li>
-            <li onClick={() => scrollTo('services')}>Services</li>
-            <li onClick={() => scrollTo('contact')}>Contact</li>
+            <li onClick={() => scrollTo('hero')}><span className="footer-arrow">›</span> Home</li>
+            <li onClick={() => scrollTo('about')}><span className="footer-arrow">›</span> About Us</li>
+            <li onClick={() => scrollTo('services')}><span className="footer-arrow">›</span> Services</li>
+            <li onClick={() => scrollTo('contact')}><span className="footer-arrow">›</span> Contact Us</li>
           </ul>
         </div>
 
-        <div className="footer-col">
-          <h4>Services</h4>
-          <ul>
-            <li>Market Securities</li>
-            <li>Fixed Income & Safety</li>
-            <li>Risk Mitigation</li>
-            <li>Data-Driven Insights</li>
-            <li>SIF</li>
-            <li>NRI Services</li>
-          </ul>
-        </div>
-
-        <div className="footer-col">
-          <h4>Contact</h4>
-          <ul>
-            <li>Aarvi_ms@yahoo.co.in</li>
-            <li>+91 9825279602</li>
-            <li style={{ fontStyle: 'italic' }}>Thaltej, Ahmedabad</li>
-            <li style={{ fontStyle: 'italic' }}>Gujarat – 380059</li>
-          </ul>
+        {/* Col 3 – Contact */}
+        <div className="footer-col footer-contact-col">
+          <h4 className="footer-col-title">Contact Info</h4>
+          <div className="footer-contact-item">
+            <div className="footer-contact-icon">📍</div>
+            <p>
+              408, Times Square Arcade-1, Near Ravija Plaza,<br />
+              Opposite Rambag, Thaltej, Shilaj,<br />
+              Ahmedabad, Gujarat – 380059
+            </p>
+          </div>
+          <div className="footer-contact-item">
+            <div className="footer-contact-icon">✉️</div>
+            <p>Aarvi_ms@yahoo.co.in</p>
+          </div>
+          <div className="footer-contact-item">
+            <div className="footer-contact-icon">📞</div>
+            <p>+91 9825279602 (Mansi Shah)</p>
+          </div>
         </div>
       </div>
 
-      {/* ARN bar */}
-      <div className="footer-arn-bar">
-        <span>AMFI Registered Mutual Fund Distributor</span>
-        <span className="footer-arn-dot">·</span>
-        <span>ARN – 106777</span>
-        <span className="footer-arn-dot">·</span>
-        <span>Date of initial Registration: October 20, 2015</span>
-        <span className="footer-arn-dot">·</span>
-        <span>Validity of ARN-106777 extends to October 19, 2027</span>
-      </div>
+      {/* ── Divider ── */}
+      <div className="footer-divider" />
 
-      <div className="footer-bottom">
-        <span className="footer-copy">
-          © 2025 Aarvi Data Analytics Services Pvt. Ltd. All rights reserved.
-          &nbsp;|&nbsp;
-          <a href="https://www.sebi.gov.in" target="_blank" rel="noreferrer" className="footer-link">SID/SAI/KIM</a>
-          &nbsp;|&nbsp;
-        </span>
-        <span className="footer-grievance">
+      {/* ── Full-width Disclosure block ── */}
+      <div className="footer-disclosure">
+        <p className="footer-disclosure-title">Disclosure</p>
+        <p className="footer-disclosure-body">
+          Risk Factors – Investments in Mutual Funds are subject to Market Risks. Read all
+          scheme-related documents carefully before investing. Mutual Fund Schemes do not assure or
+          guarantee any returns. Past performances of any Mutual Fund Scheme may or may not be
+          sustained in the future. There is no guarantee that the investment objective of any
+          suggested scheme shall be achieved. All existing and prospective investors are advised to
+          check and evaluate the Exit loads and other cost structures (TER) applicable at the time of
+          making the investment before finalizing any investment decision for Mutual Funds schemes. We
+          deal in Regular Plans only for Mutual Fund Schemes and earn a Trailing Commission on client
+          investments. Disclosure of commission earnings is made to clients at the time of investments.
+        </p>
+        <p className="footer-disclosure-body footer-arn-line">
+          AMFI Registered Mutual Fund Distributor &nbsp;|&nbsp; ARN – 106777 &nbsp;|&nbsp;
+          Date of initial Registration: October 20, 2015 &nbsp;|&nbsp;
+          Validity of ARN-106777 extends to October 19, 2027
+        </p>
+        <p className="footer-disclosure-body">
+          <a
+            href="https://www.sebi.gov.in/filings/mutual-funds.html"
+            target="_blank"
+            rel="noreferrer"
+            className="footer-sid-link"
+          >
+            SID / SAI / KIM
+          </a>
+        </p>
+        <p className="footer-disclosure-body">
           Grievance Officer: Mansi Shah &nbsp;|&nbsp; Aarvi_ms@yahoo.co.in &nbsp;|&nbsp; +91 9825279602
-        </span>
+        </p>
+        <p className="footer-disclosure-body footer-copy">
+          © 2025 Aarvi Data Analytics Services Pvt. Ltd. All rights reserved.
+        </p>
       </div>
+
     </footer>
   );
 };

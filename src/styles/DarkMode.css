@@ -270,20 +270,3 @@
   background: #2a2a2a;
   color: #f0f0f0;
 }
-
-/* ── Footer ── */
-[data-theme='dark'] .footer {
-  background: #080808;
-}
-
-[data-theme='dark'] .footer-top {
-  border-bottom-color: rgba(255,255,255,0.05);
-}
-
-[data-theme='dark'] .footer-arn-bar {
-  border-bottom-color: rgba(255,255,255,0.05);
-}
-
-[data-theme='dark'] .footer-bottom {
-  border-top-color: rgba(255,255,255,0.05);
-}
