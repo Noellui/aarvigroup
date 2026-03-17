@@ -28,6 +28,7 @@ const Footer = () => {
           <ul>
             <li onClick={() => scrollTo('hero')}><span className="footer-arrow">›</span> Home</li>
             <li onClick={() => scrollTo('about')}><span className="footer-arrow">›</span> About Us</li>
+            <li onClick={() => scrollTo('leadership')}><span className="footer-arrow">›</span> Leadership</li>
             <li onClick={() => scrollTo('services')}><span className="footer-arrow">›</span> Services</li>
             <li onClick={() => scrollTo('contact')}><span className="footer-arrow">›</span> Contact Us</li>
           </ul>

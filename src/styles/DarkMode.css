@@ -11,11 +11,12 @@
   --text-primary: #f0f0f0;
   --text-secondary: #aaa;
   --text-muted: #666;
-  --border: rgba(255,255,255,0.08);
-  --shadow: 0 4px 20px rgba(0,0,0,0.4);
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   --navy: #1a3c6e;
   --orange: #e07b00;
 }
+
 /* ── Body ── */
 [data-theme='dark'] body {
   background-color: var(--bg-primary);
@@ -31,42 +32,7 @@
   background: radial-gradient(circle at center, rgba(26, 60, 110, 0.12) 0%, transparent 65%);
 }
 
-/* ── Navbar ── */
-[data-theme='dark'] .navbar-header {
-  background: var(--bg-secondary);
-  border-bottom-color: var(--border);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.4);
-}
-
-[data-theme='dark'] .navbar {
-  background-color: var(--bg-secondary);
-}
-
-[data-theme='dark'] .navbar-topbar {
-  background-color: #0a0a0a;
-}
-
-[data-theme='dark'] .navbar-links li button {
-  color: #ccc;
-}
-
-[data-theme='dark'] .navbar-links li button:hover {
-  color: #fff;
-}
-
-[data-theme='dark'] .navbar-links li.nav-cta button {
-  background: var(--navy);
-  color: #fff;
-}
-
-[data-theme='dark'] .hamburger span {
-  background-color: #fff;
-}
-
-[data-theme='dark'] .navbar-links.open {
-  background: var(--bg-secondary);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-}
+/* ── Navbar — handled entirely by Navbar.css, no overrides here ── */
 
 /* ── About section ── */
 [data-theme='dark'] .about-section {
@@ -74,7 +40,7 @@
 }
 
 [data-theme='dark'] .about-tag {
-  background-color: rgba(26,60,110,0.35);
+  background-color: rgba(26, 60, 110, 0.35);
   color: #7aa3d4;
 }
 
@@ -128,7 +94,7 @@
 }
 
 [data-theme='dark'] .services-tag {
-  background-color: rgba(224,123,0,0.15);
+  background-color: rgba(224, 123, 0, 0.15);
   color: #f0a040;
 }
 
@@ -148,7 +114,7 @@
 
 [data-theme='dark'] .service-card:hover {
   background: #252525;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
 }
 
 [data-theme='dark'] .service-card h3 {
@@ -159,7 +125,6 @@
   color: var(--text-secondary);
 }
 
-/* Service Modal Dark Mode Overrides */
 [data-theme='dark'] .service-modal-content {
   background: var(--bg-card);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
@@ -213,7 +178,7 @@
 }
 
 [data-theme='dark'] .contact-tag {
-  background-color: rgba(26,60,110,0.35);
+  background-color: rgba(26, 60, 110, 0.35);
   color: #7aa3d4;
 }
 
@@ -263,7 +228,7 @@
 [data-theme='dark'] .form-group textarea:focus {
   border-color: var(--orange);
   background: #333;
-  box-shadow: 0 0 0 3px rgba(224,123,0,0.15);
+  box-shadow: 0 0 0 3px rgba(224, 123, 0, 0.15);
 }
 
 [data-theme='dark'] .form-group select option {

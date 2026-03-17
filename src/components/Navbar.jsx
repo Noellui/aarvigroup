@@ -12,28 +12,19 @@ const Navbar = () => {
 
   return (
     <header className="navbar-header">
-      <div className="navbar-topbar">
-        <span>📧 Aarvi_ms@yahoo.co.in</span>
-        <span>📞 +91 9825279602</span>
-      </div>
       <nav className="navbar">
         <div className="navbar-brand" onClick={() => scrollTo('hero')}>
           <img
-            src="/images/Logo and Name.png"
-            alt="Aarvi Data Analytics Services"
+            src="/images/logo and Amfi registration.png"
+            alt="Aarvi Data Analytics Services – AMFI Registered Mutual Fund Distributor"
             className="logo-img"
-          />
-          <div className="brand-divider" />
-          <img
-            src="/images/AMFI Registered Mutual Fund Distributor.png"
-            alt="AMFI Registered Mutual Fund Distributor"
-            className="amfi-img"
           />
         </div>
 
         <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
           <li><button onClick={() => scrollTo('hero')}>Home</button></li>
           <li><button onClick={() => scrollTo('about')}>About Us</button></li>
+          <li><button onClick={() => scrollTo('leadership')}>Leadership</button></li>
           <li><button onClick={() => scrollTo('services')}>Services</button></li>
           <li><button onClick={() => scrollTo('contact')}>Contact Us</button></li>
         </ul>

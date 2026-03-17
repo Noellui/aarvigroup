@@ -1,144 +1,210 @@
+/* ── Navbar Header — fully transparent, floats over page ── */
 .navbar-header {
   width: 100%;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  background: transparent;
+  box-shadow: none;
+  padding: 14px 40px;
+  box-sizing: border-box;
+  pointer-events: none;
 }
 
-/* Top bar */
 .navbar-topbar {
-  background-color: #1a3c6e;
-  color: #fff;
-  display: flex;
-  justify-content: flex-end;
-  gap: 30px;
-  padding: 6px 40px;
-  font-size: 13px;
+  display: none;
 }
 
-/* Main nav */
+/* ── Main nav row ── */
 .navbar {
-  background-color: #ffffff;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 40px;
+  padding: 0;
   position: relative;
+  pointer-events: none;
 }
 
-/* Brand: logo + divider + AMFI */
+/* Re-enable clicks on bubbles */
+.navbar-brand,
+.navbar-links,
+.navbar-actions {
+  pointer-events: all;
+}
+
+/* ── Logo bubble — solid white ── */
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: 14px;
   cursor: pointer;
   flex-shrink: 0;
+  padding: 7px 16px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease;
+}
+
+.navbar-brand:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
 }
 
 .logo-img {
-  height: 72px;
+  height: 80px;
   width: auto;
   object-fit: contain;
   display: block;
+  transition: filter 0.3s ease;
 }
 
-.brand-divider {
-  width: 1px;
-  height: 40px;
-  background: #dde3f0;
-  flex-shrink: 0;
+/* In dark mode — invert the logo so dark colors become light */
+[data-theme='dark'] .logo-img {
+  filter: brightness(0) invert(1);
 }
 
-.amfi-img {
-  height: 32px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
-
-/* Nav links */
+/* ── Nav links — solid white pill ── */
 .navbar-links {
   list-style: none;
   display: flex;
-  gap: 32px;
+  gap: 4px;
   margin: 0;
-  padding: 0;
-  
-  /* Absolute centering to ignore differing widths of left/right elements */
+  padding: 6px 8px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  background: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .navbar-links li button {
   background: none;
   border: none;
-  color: #333;
-  font-size: 15px;
+  color: #1a1a1a;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  padding: 0;
+  padding: 7px 18px;
+  border-radius: 50px;
   font-family: 'Inter', sans-serif;
-  transition: color 0.2s;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
 }
 
 .navbar-links li button:hover {
-  color: #1a3c6e;
+  background: #1a3c6e;
+  color: #ffffff;
 }
 
-/* Actions inline */
+/* ── Actions bubble — solid white ── */
 .navbar-actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 8px;
+  background: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 6px 10px;
 }
 
-/* Hamburger */
+/* ── Hamburger ── */
 .hamburger {
   display: none;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
+  padding: 4px;
 }
 
 .hamburger span {
   display: block;
-  width: 25px;
-  height: 3px;
-  background-color: #1a3c6e;
+  width: 22px;
+  height: 2.5px;
+  background-color: #1a1a1a;
   border-radius: 3px;
 }
 
-/* Mobile and Tablet (Landscape) */
+/* ══════════════════════════════════════
+   DARK MODE — same layout, inverted colors
+   bubbles = dark, text = white
+   ══════════════════════════════════════ */
+
+[data-theme='dark'] .navbar-brand {
+  background: #1e1e1e;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .navbar-brand:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme='dark'] .navbar-links {
+  background: #1e1e1e;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .navbar-links li button {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .navbar-links li button:hover {
+  background: #e07b00;
+  color: #ffffff;
+}
+
+[data-theme='dark'] .navbar-actions {
+  background: #1e1e1e;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .hamburger span {
+  background-color: #ffffff;
+}
+
+/* ── Mobile ── */
 @media (max-width: 1024px) {
-  .hamburger { display: flex; }
+  .navbar-header {
+    padding: 12px 20px;
+  }
 
-  .navbar { padding: 10px 20px; }
+  .hamburger {
+    display: flex;
+  }
 
-  /* Scale logos for mobile so they both fit */
-  .navbar-brand { gap: 8px; }
-  .logo-img { height: 36px; }
-  .brand-divider { height: 28px; }
-  .amfi-img { height: 24px; }
+  .logo-img {
+    height: 60px;
+  }
 
   .navbar-links {
     display: none;
     flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    transform: none; /* Reset transform for mobile dropdown */
-    background: #fff;
-    padding: 20px 40px;
-    gap: 16px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 76px;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    transform: none;
+    border-radius: 20px;
+    padding: 12px 16px;
+    gap: 4px;
   }
 
-  .navbar-links.open { display: flex; }
+  .navbar-links.open {
+    display: flex;
+  }
 
-  .navbar-topbar {
-    display: none; /* Hide on mobile to save vertical space */
+  .navbar-links li button {
+    width: 100%;
+    text-align: left;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 15px;
   }
 }
