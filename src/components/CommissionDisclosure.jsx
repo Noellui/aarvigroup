@@ -49,25 +49,6 @@ const CommissionDisclosure = ({ onBack }) => {
                     </div>
                 </div>
 
-                <p className="disclosure-footer-note">
-                    <a
-                        href="https://www.sebi.gov.in/filings/mutual-funds.html"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="disclosure-link"
-                    >
-                        SID / SAI / KIM
-                    </a>
-                    &nbsp;&nbsp;|&nbsp;&nbsp;
-                    <a
-                        href="YOUR_CODE_OF_CONDUCT_URL_HERE"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="disclosure-link"
-                    >
-                        Code of Conduct
-                    </a>
-                </p>
 
                 <p className="disclosure-footer-note">
                     Grievance Officer: Mansi Shah &nbsp;|&nbsp; Aarvi_ms@yahoo.co.in &nbsp;|&nbsp; +91 9825279602
