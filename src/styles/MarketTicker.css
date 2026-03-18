@@ -1,14 +1,13 @@
 .market-ticker-wrapper {
     width: 100%;
-    background: #0d1f3c;
+    background: transparent;
+    /* ← fully transparent */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     overflow: hidden;
     position: relative;
     z-index: 999;
-    /* just below navbar */
 }
 
-/* Make the widget fill the wrapper cleanly */
 .market-ticker-wrapper .tradingview-widget-container {
     width: 100%;
 }
@@ -17,12 +16,16 @@
     width: 100%;
 }
 
-/* Light mode — keep dark bar regardless */
-.market-ticker-wrapper {
-    background: #0d1f3c !important;
+/* Blocks clicks so widget never navigates to TradingView */
+.ticker-click-blocker {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    cursor: default;
+    pointer-events: all;
 }
 
-/* Thin top accent line in brand orange */
+/* Thin animated top accent line */
 .market-ticker-wrapper::before {
     content: '';
     position: absolute;
@@ -33,6 +36,7 @@
     background: linear-gradient(90deg, #e07b00, #ffaa44, #e07b00);
     background-size: 200% 100%;
     animation: tickerAccent 3s linear infinite;
+    z-index: 11;
 }
 
 @keyframes tickerAccent {
