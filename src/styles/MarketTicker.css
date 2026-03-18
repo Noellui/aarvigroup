@@ -1,7 +1,6 @@
 .market-ticker-wrapper {
     width: 100%;
-    background: transparent;
-    /* ← fully transparent */
+    background: #0d1f3c;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     overflow: hidden;
     position: relative;
@@ -14,6 +13,19 @@
 
 .market-ticker-wrapper .tradingview-widget-container__widget {
     width: 100%;
+}
+
+/* Gradient fade on right edge — hides the TradingView badge cleanly */
+.market-ticker-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, #0d1f3c);
+    z-index: 12;
+    pointer-events: none;
 }
 
 /* Blocks clicks so widget never navigates to TradingView */
