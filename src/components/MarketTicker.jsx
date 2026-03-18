@@ -5,24 +5,27 @@ const MarketTicker = () => {
     const containerRef = useRef(null);
 
     useEffect(() => {
-        // Avoid duplicate scripts on re-render
-        if (containerRef.current && containerRef.current.children.length > 0) return;
+        const container = containerRef.current;
+        if (!container) return;
+
+        container.innerHTML = '<div class="tradingview-widget-container__widget"></div>';
 
         const script = document.createElement('script');
         script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
         script.async = true;
-        script.innerHTML = JSON.stringify({
+        script.type = 'text/javascript';
+        script.textContent = JSON.stringify({
             symbols: [
                 { proName: 'FOREXCOM:NSXUSD', title: 'NASDAQ' },
+                { proName: 'FOREXCOM:SPXUSD', title: 'S&P 500' },   // ← replaces NIFTY 50
                 { proName: 'FOREXCOM:UKXGBP', title: 'FTSE' },
                 { proName: 'INDEX:NKY', title: 'Nikkei' },
-                { proName: 'TVC:DXY', title: 'USD Index' },
+                { proName: 'CAPITALCOM:DXY', title: 'USD Index' },
                 { proName: 'TVC:GOLD', title: 'Gold' },
                 { proName: 'TVC:USOIL', title: 'Crude Oil' },
                 { proName: 'FX:EURUSD', title: 'EUR/USD' },
                 { proName: 'FX:USDINR', title: 'USD/INR' },
                 { proName: 'BSE:SENSEX', title: 'SENSEX' },
-                { proName: 'NSE:NIFTY50', title: 'NIFTY 50' },
             ],
             showSymbolLogo: false,
             isTransparent: true,
@@ -31,14 +34,16 @@ const MarketTicker = () => {
             locale: 'en',
         });
 
-        containerRef.current.appendChild(script);
+        container.appendChild(script);
+
+        return () => {
+            if (container) container.innerHTML = '';
+        };
     }, []);
 
     return (
         <div className="market-ticker-wrapper">
-            <div className="tradingview-widget-container" ref={containerRef}>
-                <div className="tradingview-widget-container__widget" />
-            </div>
+            <div className="tradingview-widget-container" ref={containerRef} />
         </div>
     );
 };
