@@ -5,6 +5,7 @@ import MarketTicker from './components/MarketTicker';
 import About from './components/About';
 import Leadership from './components/Leadership';
 import Services from './components/Services';
+import Partners from './components/Partners';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CommissionDisclosure from './components/CommissionDisclosure';
@@ -15,7 +16,6 @@ import './styles/Animations.css';
 import './styles/DarkMode.css';
 import './styles/SectionContrast.css';
 
-// Inline styles for the fade overlay
 const overlayStyle = {
   position: 'fixed',
   inset: 0,
@@ -33,18 +33,13 @@ function App() {
 
   const navigateTo = (sectionId) => {
     if (page !== 'home') {
-      // 1. Fade in the overlay
       setFadeOpacity(1);
-
       setTimeout(() => {
-        // 2. While hidden: jump to top and switch page
         window.scrollTo({ top: 0, behavior: 'instant' });
         setPage('home');
         setPendingScroll(sectionId);
-
-        // 3. Fade out overlay
         setTimeout(() => setFadeOpacity(0), 50);
-      }, 350); // wait for fade-in to complete
+      }, 350);
     } else {
       document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     }
@@ -91,6 +86,7 @@ function App() {
       <About />
       <Leadership />
       <Services />
+      <Partners />
       <Contact />
       <Footer onShowDisclosure={() => {
         setFadeOpacity(1);
