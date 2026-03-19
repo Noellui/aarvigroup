@@ -82,7 +82,7 @@ function App() {
       <div style={{ ...overlayStyle, opacity: fadeOpacity }} />
       <Navbar navigateTo={navigateTo} />
       <Hero />
-      <MarketTicker />
+      {/* <MarketTicker /> */}
       <About />
       <Leadership />
       <Services />
